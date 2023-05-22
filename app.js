@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const exphbs = require('express-handlebars')
 
 const mongoose = require('mongoose')
 if (process.env.NODE_ENV !== 'production') {
@@ -16,9 +17,13 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+app.use(express.static('public'))
+
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.set('view engine', 'hbs')
 
 app.get('/', (req, res) => {
-  res.send(`這是首頁`)
+  res.render('index')
 })
 
 app.listen(port, () => {
