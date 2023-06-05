@@ -1,18 +1,33 @@
-<div class="container mt-5 w-50 shadow-sm">
-  <h4>URL Shortener</h4>
+  <div class="container mt-5 w-50 shadow-sm">
+    <h4>URL Shortener</h4>
 
-  <div class="img">
-    <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt=””>
+    <div class="img">
+      <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt=””>
+    </div>
+
+    <div class="container p-3">
+      <form action="/" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="originalURL" placeholder="http://" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">submit</button>
+        </div>
+      </form>
+    </div>
+    
+    {{#if shortURL}}
+    <div class="container p-3">
+      <p>Success! Please use  this link.</p>
+      <h5>{{ shortURL }}</h5>
+      <button class="btn btn-outline-secondary" type="submit" id="button-addon2">copy</button>
+      {{!-- <form action="/" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="originalURL" placeholder="http://" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">submit</button>
+        </div>
+      </form> --}}
+    </div>
+    {{/if}}
+
   </div>
-
-  <div class="container p-3">
-    <form action="/" method="post">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="http://" aria-label="Recipient's username"
-          aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">submit</button>
-      </div>
-    </form>
-  </div>
-
-</div>
