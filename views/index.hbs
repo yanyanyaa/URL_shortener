@@ -1,7 +1,7 @@
   <div class="container mt-5 w-50 shadow-sm">
     <h4>URL Shortener</h4>
 
-    <div class="img">
+    <div class="cover">
       <img src="https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png" alt=””>
     </div>
 
@@ -18,22 +18,31 @@
 
     <div class="container p-3 output">
       <p>Success! Please use this link:</p>
-      <h5 id="copyURL">{{ shortURL }}</h5>
-      <button class="btn btn-outline-secondary btnCopy" onclick="copy()" type="submit" id="button-addon2">copy</button>
-      <script>
-        function copy() {
-          const copyURL = document.getElementById('copyURL')
-          navigator.clipboard.writeText(copyURL.innerText)
-        }
-      </script>
+      <div id="secShortURL">
+        <h5 id="copyURL">{{ shortURL }}</h5>
+        <button id="btnCopy" class="btn btn-outline-secondary btn-sm" onclick="copy()" type="submit" id="button-addon2">
+          <i class="fa-solid fa-object-ungroup" style="color: #f38758;"></i>
+        </button>
+
+        <script>
+          function copy() {
+            const copyURL = document.getElementById('copyURL')
+            navigator.clipboard.writeText(copyURL.innerText)
+          }
+        </script>
+      </div>
+      <div id="back">
+        <a id="btnBack" class="btn btn-outline-secondary btn-sm" href="/" role="button">back</a>
+      </div>
     </div>
+  
 
     {{else}}
     <div class="container p-3 input">
       <form action="/" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="originalURL" placeholder="http://" aria-label="Recipient's username"
-            aria-describedby="button-addon2">
+            aria-describedby="button-addon2" required>
           <button class="btn btn-outline-secondary" type="submit" id="button-addon2">submit</button>
         </div>
       </form>

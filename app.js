@@ -5,7 +5,7 @@ const SERVER = ` http://localhost:${port}/`
 const exphbs = require('express-handlebars')
 
 const Url = require('./models/url') //schema
-const shortCode = require('./shortener') //五亂碼
+const shortCode = require('./public/javascripts/shortener') //五亂碼
 
 const mongoose = require('mongoose')
 if (process.env.NODE_ENV !== 'production') {
